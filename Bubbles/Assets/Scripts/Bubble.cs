@@ -4,13 +4,32 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    public float lifetime = 5f; // Time before the bubble disappears
+    public float lifetime = 0.5f; // Time before the bubble disappears
     public float pushForce = 5f; // Force applied to the player on collision
+    private static List<GameObject> activeBubbles = new List<GameObject>(); // Tracks active bubbles
+    private static int maxBubbles = 8; // Maximum number of bubbles allowed
 
     private void Start()
     {
-        // Destroy the bubble after its lifetime expires
+        // Add the bubble to the active list
+        activeBubbles.Add(gameObject);
+
+        // Check if the number of bubbles exceeds the limit
+        if (activeBubbles.Count > maxBubbles)
+        {
+            // Destroy the oldest bubble
+            Destroy(activeBubbles[0]);
+            activeBubbles.RemoveAt(0);
+        }
+
+        // Schedule this bubble for destruction after its lifetime
         Destroy(gameObject, lifetime);
+    }
+
+    private void OnDestroy()
+    {
+        // Remove the bubble from the active list if it gets destroyed
+        activeBubbles.Remove(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +55,5 @@ public class Bubble : MonoBehaviour
         }
     }
 }
-
 
 
