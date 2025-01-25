@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class PickUpEggs : MonoBehaviour
 {
-    private Inventory inventory;  // Class-level variable
+    private Inventory inventory;
     public GameObject itemButton;
 
     private void Start()
     {
-        // Assign the class-level variable directly
         inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        // player starts with inventory
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player")) // Corrected tag case here
+
+
+     void OnTriggerEnter2D(Collider2D other)
+        // if player collides with the object we want them to pick it up 
+    { 
+        if (other.CompareTag("Player"))
         {
-            for (int i = 0; i < inventory.slots.Length; i++)
+            for (int i = 0; i < inventory.slots.Length; i++) // checking if inventory is full or empty , if its not then we can add it to inventory 
             {
-                if (!inventory.isFull[i])  // Simplified check
+                if(inventory.isFull[i] == false)
+                    // item is added to inventory
                 {
-                    inventory.isFull[i] = true;
-                    Instantiate(itemButton, inventory.slots[i].transform, false);
-                    Destroy(gameObject);  // Destroys the item after it's picked up
-                    break;
+                    inventory.isFull[i] = true; // inventory is now full and so the loop stops 
+                    Instantiate(itemButton, inventory.slots[i].transform);
+                    Destroy(gameObject);
+                    break; 
                 }
             }
         }
