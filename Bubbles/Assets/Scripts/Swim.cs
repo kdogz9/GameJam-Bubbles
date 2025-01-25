@@ -1,25 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Swim : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
+    public float moveSpeed = 5f; // Speed of the player
+    private Rigidbody2D rb; // Reference to the Rigidbody2D component
+    private Vector2 movement; // To store input movement
 
-    public float movSpeed;
-    float speedX, speedY;
-    Rigidbody2D rb;
-
-    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
     }
 
-    // Update is called once per frame
     void Update()
     {
-        speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
-        speedY = Input.GetAxisRaw("Vertical") * movSpeed;
-        rb.velocity = new Vector2(speedX, speedY);
+        // Get input for horizontal and vertical movement
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        // Face the direction of movement
+        if (movement != Vector2.zero)
+        {
+            float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90); // Adjust for top-down
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // Move the player
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
