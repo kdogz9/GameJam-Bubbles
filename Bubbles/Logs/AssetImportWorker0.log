@@ -6299,3 +6299,13 @@ Start importing Assets/Prefabs/Egg.prefab using Guid(c3c34214043046d498d9b1d6318
  -> (artifact id: 'bf48b63d445ab6ae71d652f922b3b77b') in 0.125794 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 262.364548 seconds.
+  path: Assets/Art work/Game jam - Bubbles (1).jpg
+  artifactKey: Guid(25efb09263ec04e418f0231360e920f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Game jam - Bubbles (1).jpg using Guid(25efb09263ec04e418f0231360e920f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '065ddae7156c108e0ed01cb02c28d82d') in 0.068925 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
