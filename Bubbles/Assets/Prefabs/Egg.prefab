@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7343154076532217438}
   - component: {fileID: 6119139477993841980}
   - component: {fileID: 7013432647981094215}
-  - component: {fileID: 3426739853744956661}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Untagged
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7946917893710957821}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.77, y: -3.2, z: -0.05}
+  m_LocalPosition: {x: -0.21479997, y: 0.6299999, z: 0}
   m_LocalScale: {x: 0.48, y: 0.4467, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129,20 +128,8 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7946917893710957821}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9164dabfa42401542a523cc1da85fdbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3426739853744956661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7946917893710957821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147f6b66374573847a9f34554d02d723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
