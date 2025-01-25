@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class ItemProperties : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public bool hasBeenPlaced = false; // Tracks if the item has already been placed
 }
+
