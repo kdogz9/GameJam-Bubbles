@@ -20,15 +20,15 @@ public class ItemInteraction : MonoBehaviour
             // Disable the item's renderer to make it "disappear" visually
             collision.gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-            // Optional: Disable the Rigidbody2D to stop movement (if any)
+            // Disable the Rigidbody2D to stop any movement
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (rb != null) rb.isKinematic = true;
+            if (rb != null) rb.simulated = false;
         }
     }
 
     void Update()
     {
-        // Capture player's movement direction
+        // Capture the player's movement direction
         Vector2 movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (movementInput != Vector2.zero)
         {
@@ -56,11 +56,11 @@ public class ItemInteraction : MonoBehaviour
         // Place the item at the drop position
         pickedUpItem.transform.position = dropPosition;
 
-        // Optional: Re-enable the Rigidbody2D to allow the item to interact with physics again
+        // Re-enable the Rigidbody2D to allow the item to interact with physics
         Rigidbody2D rb = pickedUpItem.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            rb.isKinematic = false;
+            rb.simulated = true;
             rb.velocity = Vector2.zero; // Reset velocity to avoid unintended movement
         }
 
