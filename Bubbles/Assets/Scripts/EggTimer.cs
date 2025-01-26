@@ -38,7 +38,6 @@ public class EggTimer : MonoBehaviour
             scoreManager.UpdateScoreText();
         }
 
-        
     }
 
     void Update()
@@ -98,7 +97,7 @@ public class EggTimer : MonoBehaviour
         }
         scoreManager.DecreaseScore(); // Decrease score by 1
         Destroy(currentEgg); // Destroy the egg
-      
+        
     }
 
     void StopTimer()
@@ -118,6 +117,8 @@ public class EggTimer : MonoBehaviour
             timerText.text = message;
         }
     }
+
+  
 
     // Restart the scene when the R key is pressed
     void RestartScene()
