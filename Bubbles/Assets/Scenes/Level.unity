@@ -1702,6 +1702,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2899000889671601574, guid: 05e99fb0750955049ba9bb7f7cfaee32, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 5.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2899000889671601574, guid: 05e99fb0750955049ba9bb7f7cfaee32, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5035689634197260341, guid: 05e99fb0750955049ba9bb7f7cfaee32, type: 3}
       propertyPath: pickedUpItem
       value: 
@@ -1750,6 +1758,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7881197867128447824, guid: 05e99fb0750955049ba9bb7f7cfaee32, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f87ebd834e40482488d9e1c0914b4e84, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
