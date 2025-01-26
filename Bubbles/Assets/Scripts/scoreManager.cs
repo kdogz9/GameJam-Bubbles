@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // For TextMesh Pro
+using TMPro;
 
 public class scoreManager : MonoBehaviour
 {
@@ -28,12 +28,19 @@ public class scoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
-    // Make this method public so it can be accessed from other scripts
-    public void UpdateScoreText()  // Change to public
+    // Update the score display on the UI
+    public void UpdateScoreText()
     {
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score.ToString();
         }
+    }
+
+    // Reset the score to 0
+    public void ResetScore()
+    {
+        score = 0;
+        UpdateScoreText();
     }
 }
