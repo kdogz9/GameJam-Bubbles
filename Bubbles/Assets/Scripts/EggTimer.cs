@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // For TextMesh Pro
+using UnityEngine.SceneManagement; // For scene management
 
 public class EggTimer : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class EggTimer : MonoBehaviour
 
     private scoreManager scoreManager; // Reference to the ScoreManager script
     private bool isEggInCoral = false; // Flag to check if the egg reached the coral
+    private bool gameFinished = false; // Flag to check if the game has finished
+
+    private GameObject currentEgg; // The current egg in the game
 
     void Start()
     {
@@ -33,10 +37,18 @@ public class EggTimer : MonoBehaviour
         {
             scoreManager.UpdateScoreText();
         }
+
+        
     }
 
     void Update()
     {
+        // If the game is finished, prevent further actions
+        if (gameFinished)
+        {
+            return;
+        }
+
         // If the egg has not reached the coral yet and the timer hasn't run out
         if (!isEggInCoral)
         {
@@ -53,7 +65,6 @@ public class EggTimer : MonoBehaviour
                 DisplayMessage("Egg reached coral in time!");
                 StopTimer(); // Stop the timer
                 scoreManager.IncreaseScore(); // Increase score by 1
-                GenerateNewEgg(); // Generate a new egg
             }
 
             // Update the timer display only if the egg has not reached the coral yet
@@ -71,17 +82,23 @@ public class EggTimer : MonoBehaviour
                 DestroyEgg();
             }
         }
+
+        // Listen for the R key to restart the game (reload the scene)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartScene();
+        }
     }
 
     void DestroyEgg()
     {
         if (timerText != null)
         {
-            timerText.text = "Egg destroyed due to timer running out!";
+            timerText.text = "Egg didn't make it!";
         }
         scoreManager.DecreaseScore(); // Decrease score by 1
-        Destroy(gameObject); // Destroy the egg
-        GenerateNewEgg(); // Generate a new egg
+        Destroy(currentEgg); // Destroy the egg
+      
     }
 
     void StopTimer()
@@ -102,17 +119,10 @@ public class EggTimer : MonoBehaviour
         }
     }
 
-    void GenerateNewEgg()
+    // Restart the scene when the R key is pressed
+    void RestartScene()
     {
-        // Randomize the spawn position within the defined area
-        float randomX = Random.Range(spawnAreaMin.x, spawnAreaMax.x);
-        float randomY = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
-        Vector3 randomSpawnPosition = new Vector3(randomX, randomY, 0f); // Adjust Z if necessary
-
-        // Instantiate a new egg at the random spawn position
-        if (eggPrefab != null)
-        {
-            Instantiate(eggPrefab, randomSpawnPosition, Quaternion.identity);
-        }
+        // Use the SceneManager to reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
     }
 }
