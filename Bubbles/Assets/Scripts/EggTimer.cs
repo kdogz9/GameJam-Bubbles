@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro; // For TextMesh Pro
+using UnityEngine.SceneManagement; // For scene management
 
 public class EggTimer : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class EggTimer : MonoBehaviour
 
     private scoreManager scoreManager; // Reference to the ScoreManager script
     private bool isEggInCoral = false; // Flag to check if the egg reached the coral
+    private bool gameFinished = false; // Flag to check if the game has finished
+
+    private List<GameObject> eggs = new List<GameObject>(); // To track spawned eggs
 
     void Start()
     {
@@ -33,10 +37,25 @@ public class EggTimer : MonoBehaviour
         {
             scoreManager.UpdateScoreText();
         }
+
+        // Spawn multiple eggs initially
+        GenerateMultipleEggs(3); // Adjust the number as needed
     }
 
     void Update()
     {
+        // If the game is finished, prevent further actions
+        if (gameFinished)
+        {
+            return;
+        }
+
+        // Check if the player wants to pick up any egg using the 'E' key
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TryPickupEgg();
+        }
+
         // If the egg has not reached the coral yet and the timer hasn't run out
         if (!isEggInCoral)
         {
@@ -53,7 +72,7 @@ public class EggTimer : MonoBehaviour
                 DisplayMessage("Egg reached coral in time!");
                 StopTimer(); // Stop the timer
                 scoreManager.IncreaseScore(); // Increase score by 1
-                GenerateNewEgg(); // Generate a new egg
+                GenerateMultipleEggs(3); // Generate multiple new eggs
             }
 
             // Update the timer display only if the egg has not reached the coral yet
@@ -71,17 +90,23 @@ public class EggTimer : MonoBehaviour
                 DestroyEgg();
             }
         }
+
+        // Listen for the R key to restart the game (reload the scene)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartScene();
+        }
     }
 
     void DestroyEgg()
     {
         if (timerText != null)
         {
-            timerText.text = "Egg destroyed due to timer running out!";
+            timerText.text = "Egg didn't make it!";
         }
         scoreManager.DecreaseScore(); // Decrease score by 1
         Destroy(gameObject); // Destroy the egg
-        GenerateNewEgg(); // Generate a new egg
+        GenerateMultipleEggs(3); // Generate multiple new eggs
     }
 
     void StopTimer()
@@ -102,17 +127,47 @@ public class EggTimer : MonoBehaviour
         }
     }
 
-    void GenerateNewEgg()
+    // Generate multiple eggs
+    void GenerateMultipleEggs(int numberOfEggs)
     {
-        // Randomize the spawn position within the defined area
-        float randomX = Random.Range(spawnAreaMin.x, spawnAreaMax.x);
-        float randomY = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
-        Vector3 randomSpawnPosition = new Vector3(randomX, randomY, 0f); // Adjust Z if necessary
-
-        // Instantiate a new egg at the random spawn position
-        if (eggPrefab != null)
+        for (int i = 0; i < numberOfEggs; i++)
         {
-            Instantiate(eggPrefab, randomSpawnPosition, Quaternion.identity);
+            // Randomize the spawn position within the defined area
+            float randomX = Random.Range(spawnAreaMin.x, spawnAreaMax.x);
+            float randomY = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
+            Vector3 randomSpawnPosition = new Vector3(randomX, randomY, 0f); // Adjust Z if necessary
+
+            // Instantiate a new egg at the random spawn position
+            if (eggPrefab != null)
+            {
+                GameObject egg = Instantiate(eggPrefab, randomSpawnPosition, Quaternion.identity);
+                eggs.Add(egg); // Add the spawned egg to the list for tracking
+            }
+        }
+    }
+
+    // Restart the scene when the R key is pressed
+    void RestartScene()
+    {
+        // Use the SceneManager to reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
+    }
+
+    // Attempt to pick up an egg using the E key
+    void TryPickupEgg()
+    {
+        foreach (GameObject egg in eggs)
+        {
+            float distanceToEgg = Vector3.Distance(transform.position, egg.transform.position);
+
+            // If the player is close enough to the egg and presses E, pick it up
+            if (distanceToEgg <= distanceThreshold)
+            {
+                scoreManager.IncreaseScore(); // Increase score by 1
+                Destroy(egg); // Destroy the picked-up egg
+                eggs.Remove(egg); // Remove it from the list of eggs
+                break; // Only allow picking up one egg at a time
+            }
         }
     }
 }
