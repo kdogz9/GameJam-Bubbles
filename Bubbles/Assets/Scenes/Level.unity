@@ -714,7 +714,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 66149d124f5d0cb4d920bbeaadabb293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -775,8 +775,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -957.15, y: -531.41}
-  m_SizeDelta: {x: 4.6587, y: 17.183}
+  m_AnchoredPosition: {x: -957.15, y: -539.6165}
+  m_SizeDelta: {x: 4.6587, y: 0.7699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838025120
 MonoBehaviour:
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 16.438066, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.7924299, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   eggPrefab: {fileID: 7946917892709947756}
   spawnAreaMin: {x: 0, y: 0}
   spawnAreaMax: {x: 0, y: 0}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 838025120}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

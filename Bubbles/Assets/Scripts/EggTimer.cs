@@ -14,10 +14,8 @@ public class EggTimer : MonoBehaviour
     public Vector2 spawnAreaMin; // Minimum bounds of the spawn area (X and Y coordinates)
     public Vector2 spawnAreaMax; // Maximum bounds of the spawn area (X and Y coordinates)
 
-    public TMP_Text scoreText; // Reference to the TMP_Text element to display score
-    private int score = 0; // Player's score
-
-    private bool isEggInCoral = false;
+    private scoreManager scoreManager; // Reference to the ScoreManager script
+    private bool isEggInCoral = false; // Flag to check if the egg reached the coral
 
     void Start()
     {
@@ -27,8 +25,14 @@ public class EggTimer : MonoBehaviour
             timerText.text = "Time Left: " + timer.ToString("F1");
         }
 
+        // Initialize the ScoreManager
+        scoreManager = FindObjectOfType<scoreManager>();
+
         // Initialize the score display
-        UpdateScoreText();
+        if (scoreManager != null)
+        {
+            scoreManager.UpdateScoreText();
+        }
     }
 
     void Update()
@@ -38,13 +42,17 @@ public class EggTimer : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
+            // Ensure we are using 2D positions for the distance check
+            Vector2 eggPosition = new Vector2(transform.position.x, transform.position.y);
+            Vector2 coralPosition = new Vector2(coral.position.x, coral.position.y);
+
             // Check if the egg is within distance of the coral
-            if (Vector2.Distance(transform.position, coral.position) <= distanceThreshold)
+            if (Vector2.Distance(eggPosition, coralPosition) <= distanceThreshold)
             {
                 isEggInCoral = true; // The egg has reached the coral
                 DisplayMessage("Egg reached coral in time!");
                 StopTimer(); // Stop the timer
-                IncreaseScore(); // Increase score by 1
+                scoreManager.IncreaseScore(); // Increase score by 1
                 GenerateNewEgg(); // Generate a new egg
             }
 
@@ -71,7 +79,7 @@ public class EggTimer : MonoBehaviour
         {
             timerText.text = "Egg destroyed due to timer running out!";
         }
-        DecreaseScore(); // Decrease score by 1
+        scoreManager.DecreaseScore(); // Decrease score by 1
         Destroy(gameObject); // Destroy the egg
         GenerateNewEgg(); // Generate a new egg
     }
@@ -79,6 +87,7 @@ public class EggTimer : MonoBehaviour
     void StopTimer()
     {
         // Stop the timer from decreasing once the egg reaches the coral
+        timer = 0; // Immediately stop the timer
         if (timerText != null)
         {
             timerText.text = "Egg reached coral in time!";
@@ -104,27 +113,6 @@ public class EggTimer : MonoBehaviour
         if (eggPrefab != null)
         {
             Instantiate(eggPrefab, randomSpawnPosition, Quaternion.identity);
-        }
-    }
-
-    void IncreaseScore()
-    {
-        score += 1; // Increase the score by 1 when the egg reaches the coral in time
-        UpdateScoreText();
-    }
-
-    void DecreaseScore()
-    {
-        score -= 1; // Decrease the score by 1 when the egg is destroyed due to the timer running out
-        UpdateScoreText();
-    }
-
-    void UpdateScoreText()
-    {
-        // Update the score display
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
         }
     }
 }
