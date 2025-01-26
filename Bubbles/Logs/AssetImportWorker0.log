@@ -389,3 +389,43 @@ Start importing Assets/Swim.gif using Guid(f87ebd834e40482488d9e1c0914b4e84) Imp
  -> (artifact id: '4bc10eeef1ca3477add70a6b2bd80039') in 0.042345 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 567.894409 seconds.
+  path: Assets/Art work/Swim side_0000.bmp
+  artifactKey: Guid(2e9a86ee2fe76f243a9de69ada556c5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim side_0000.bmp using Guid(2e9a86ee2fe76f243a9de69ada556c5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'c9a28a83aa2a5ef0f6d2e0ea72ebdb34') in 0.035175 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art work/Swim side_0004.bmp
+  artifactKey: Guid(81192b1dbcc32104fb96cecebfba6a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim side_0004.bmp using Guid(81192b1dbcc32104fb96cecebfba6a5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: '4947b274b84d50f035776c6fbbb5cb13') in 0.014677 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Art work/Swim side_0002.bmp
+  artifactKey: Guid(24e3b5a6111bacc4e9f75ada22231fdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim side_0002.bmp using Guid(24e3b5a6111bacc4e9f75ada22231fdf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: '1bbed0a3af604ac1bac594a586345bb4') in 0.008933 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/Art work/Swim side_0003.bmp
+  artifactKey: Guid(de3a6d4c6753dd54da2f0af02aefc47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim side_0003.bmp using Guid(de3a6d4c6753dd54da2f0af02aefc47f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: '09faec057063f991511813e70490bec6') in 0.012499 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
