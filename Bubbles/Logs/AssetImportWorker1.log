@@ -184,3 +184,68 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 443553.835887 seconds.
+  path: Assets/Art work/Swim_Up_Down_0001.png
+  artifactKey: Guid(d459f0024a0a1c9499f044cd90c1b478) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim_Up_Down_0001.png using Guid(d459f0024a0a1c9499f044cd90c1b478) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'e02f62c95e3043a70bd90f7819432f7c') in 0.088837 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Art work/Swim_Up_Down_0004.png
+  artifactKey: Guid(77beb97c70d907347a1b22fbf5c0ed2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim_Up_Down_0004.png using Guid(77beb97c70d907347a1b22fbf5c0ed2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'b74a11d05ffba4c4e5acf073eaa8c669') in 0.035526 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 209.731551 seconds.
+  path: Assets/Art work/Swim Side_0001.png
+  artifactKey: Guid(0e77082dfa931cb47914f6363c576a22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim Side_0001.png using Guid(0e77082dfa931cb47914f6363c576a22) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'e153c64c1ff279a71c0595e93bb196bc') in 0.019609 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Art work/Swim Side_0003.png
+  artifactKey: Guid(09bbec10ddd6b1e4a80d24b615931978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim Side_0003.png using Guid(09bbec10ddd6b1e4a80d24b615931978) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'b50b08c9804f525f32ffab194b3795b4') in 0.025033 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Art work/Swim Side_0004.png
+  artifactKey: Guid(9cbbaa1ce3f5e914ab6e6c110f0a16a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim Side_0004.png using Guid(9cbbaa1ce3f5e914ab6e6c110f0a16a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: '122981b4c5cb4309c92aacd27b79083a') in 0.037152 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Art work/Swim Side_0002.png
+  artifactKey: Guid(48fde74e3dd210a4ead51c84b00aa642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art work/Swim Side_0002.png using Guid(48fde74e3dd210a4ead51c84b00aa642) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 24 workers.
+ -> (artifact id: 'd844bb9a866a1f13330336df92e3630f') in 0.023432 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
