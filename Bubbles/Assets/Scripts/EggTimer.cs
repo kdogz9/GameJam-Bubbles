@@ -19,7 +19,7 @@ public class EggTimer : MonoBehaviour
     private bool isEggInCoral = false; // Flag to check if the egg reached the coral
     private bool gameFinished = false; // Flag to check if the game has finished
 
-    private List<GameObject> eggs = new List<GameObject>(); // To track spawned eggs
+    private GameObject currentEgg; // The current egg in the game
 
     void Start()
     {
@@ -38,8 +38,6 @@ public class EggTimer : MonoBehaviour
             scoreManager.UpdateScoreText();
         }
 
-        // Spawn multiple eggs initially
-        GenerateMultipleEggs(3); // Adjust the number as needed
     }
 
     void Update()
@@ -48,12 +46,6 @@ public class EggTimer : MonoBehaviour
         if (gameFinished)
         {
             return;
-        }
-
-        // Check if the player wants to pick up any egg using the 'E' key
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TryPickupEgg();
         }
 
         // If the egg has not reached the coral yet and the timer hasn't run out
@@ -72,7 +64,6 @@ public class EggTimer : MonoBehaviour
                 DisplayMessage("Egg reached coral in time!");
                 StopTimer(); // Stop the timer
                 scoreManager.IncreaseScore(); // Increase score by 1
-                GenerateMultipleEggs(3); // Generate multiple new eggs
             }
 
             // Update the timer display only if the egg has not reached the coral yet
@@ -105,8 +96,8 @@ public class EggTimer : MonoBehaviour
             timerText.text = "Egg didn't make it!";
         }
         scoreManager.DecreaseScore(); // Decrease score by 1
-        Destroy(gameObject); // Destroy the egg
-        GenerateMultipleEggs(3); // Generate multiple new eggs
+        Destroy(currentEgg); // Destroy the egg
+        
     }
 
     void StopTimer()
@@ -127,47 +118,12 @@ public class EggTimer : MonoBehaviour
         }
     }
 
-    // Generate multiple eggs
-    void GenerateMultipleEggs(int numberOfEggs)
-    {
-        for (int i = 0; i < numberOfEggs; i++)
-        {
-            // Randomize the spawn position within the defined area
-            float randomX = Random.Range(spawnAreaMin.x, spawnAreaMax.x);
-            float randomY = Random.Range(spawnAreaMin.y, spawnAreaMax.y);
-            Vector3 randomSpawnPosition = new Vector3(randomX, randomY, 0f); // Adjust Z if necessary
-
-            // Instantiate a new egg at the random spawn position
-            if (eggPrefab != null)
-            {
-                GameObject egg = Instantiate(eggPrefab, randomSpawnPosition, Quaternion.identity);
-                eggs.Add(egg); // Add the spawned egg to the list for tracking
-            }
-        }
-    }
+  
 
     // Restart the scene when the R key is pressed
     void RestartScene()
     {
         // Use the SceneManager to reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
-    }
-
-    // Attempt to pick up an egg using the E key
-    void TryPickupEgg()
-    {
-        foreach (GameObject egg in eggs)
-        {
-            float distanceToEgg = Vector3.Distance(transform.position, egg.transform.position);
-
-            // If the player is close enough to the egg and presses E, pick it up
-            if (distanceToEgg <= distanceThreshold)
-            {
-                scoreManager.IncreaseScore(); // Increase score by 1
-                Destroy(egg); // Destroy the picked-up egg
-                eggs.Remove(egg); // Remove it from the list of eggs
-                break; // Only allow picking up one egg at a time
-            }
-        }
     }
 }
